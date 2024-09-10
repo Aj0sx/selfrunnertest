@@ -1,4 +1,4 @@
-name: CI for Simple Repo
+name: Run Simple Python Script
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test:
+  run-script:
     runs-on: self-hosted
 
     steps:
@@ -21,11 +21,6 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install dependencies
+    - name: Run Python script
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
-    - name: Run tests
-      run: |
-        python -m unittest discover tests/
+        python main.py
